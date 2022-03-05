@@ -17,18 +17,18 @@ describe('Calculator', function() {
     ' <!-- keys -->  ' +
     ' <div class="keys">  ' +
     '  <!-- 4 rows of keys -->  ' +
-    '   <div class="row">  ' +
-    '    <button id="num7" value="7">7</button>  ' +
-    '    <button id="num8"  value="8">8</button>  ' +
-    '   <button id="num9"  value="9">9</button>  ' +
-    '    <button id="plus" value="+" class="operator">+</button>  ' +
-    '  </div>  ' +
-    '   <div class="row">  ' +
-    '    <button id="num7" value="7">7</button>  ' +
-    '    <button id="num8"  value="8">8</button>  ' +
-    '   <button id="num9"  value="9">9</button>  ' +
-    '    <button id="plus" value="+" class="operator">+</button>  ' +
-    '  </div>  ' +
+    '         <div class="row">   ' +
+    '         <button id="changeSign" value="changeSign">+/-</button>   ' +
+    '          <button id="squareRoot"  value="squareRoot">&#8730</button>   ' +
+    '         <button id="percentage"  value="percentage">%</button>   ' +
+    '     </div>   ' +
+    '      <div class="row">   ' +
+    '          <button id="memRecall" value="memRecall">MRC</button>   ' +
+    '          <button id="memoryMinus"  value="memoryMinus">M-</button>   ' +
+    '         <button id="memoryAdd"  value="memoryAdd">M+</button>   ' +
+    '     </div>   ' +
+
+    
     '   <div class="row">  ' +
     '    <button id="num7" value="7">7</button>  ' +
     '    <button id="num8"  value="8">8</button>  ' +
@@ -297,6 +297,53 @@ describe('Calculator', function() {
     /**test for negative numbers */
 
     /**test for decimals */
+
+    /**Test for additional functionalities */
+    /**change sign */
+    it('should return a positive number, negative 5 to minus 5', function() {
+        document.querySelector("#minus").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#changeSign").click(); 
+        expect(document.querySelector('#display').value).toBe('5'); 
+    }); 
+
+    it('should return a positive number, negative 6 to negative 6', function() {
+        document.querySelector("#num6").click();
+        document.querySelector("#changeSign").click(); 
+        expect(document.querySelector('#display').value).toBe('-6'); 
+    }); 
+
+    /**squareroot */
+    it('should return square root of number, 25 should return 5', function() {
+        document.querySelector("#num2").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#squareRoot").click(); 
+        expect(document.querySelector('#display').value).toBe('5'); 
+    }); 
+
+    it('should return NaN, -25 should return NaN', function() {
+        document.querySelector("#num2").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#changeSign").click();
+        document.querySelector("#squareRoot").click(); 
+        expect(document.querySelector('#display').value).toBe('NaN'); 
+    });  
+
+    /**percentage */
+    it('should return square root of number, 25 should return 5', function() {
+        document.querySelector("#num2").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#squareRoot").click(); 
+        expect(document.querySelector('#display').value).toBe('5'); 
+    }); 
+
+    it('should return NaN, -25 should return NaN', function() {
+        document.querySelector("#num2").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#changeSign").click();
+        document.querySelector("#squareRoot").click(); 
+        expect(document.querySelector('#display').value).toBe('NaN'); 
+    });  
 
 
 
