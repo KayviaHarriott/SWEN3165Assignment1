@@ -63,8 +63,8 @@ describe('Calculator', function() {
     });
   
     it('should return 1 in display', function() {
-        document.querySelector("#num1").click();
-        expect(document.querySelector('#display').value).toBe('1'); 
+        document.querySelector("#num2").click();
+        expect(document.querySelector('#display').value).toBe('2'); 
     }); 
   
     // it('should calculate zero for invalid x value', function() {
