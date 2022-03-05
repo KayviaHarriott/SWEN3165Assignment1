@@ -60,7 +60,7 @@ describe('Calculator', function() {
       document.body.insertAdjacentHTML(
         'afterbegin', 
          fixture);
-     });
+     }); 
   
     // remove the html fixture from the DOM
     afterEach(function() {
@@ -330,77 +330,46 @@ describe('Calculator', function() {
     });  
 
     /**percentage */
-    it('should return square root of number, 25 should return 5', function() {
+    it('should return percentage of a number, 25 should return 0.25', function() {
         document.querySelector("#num2").click();
         document.querySelector("#num5").click();
-        document.querySelector("#squareRoot").click(); 
-        expect(document.querySelector('#display').value).toBe('5'); 
+        document.querySelector("#percentage").click(); 
+        expect(document.querySelector('#display').value).toBe('0.25'); 
     }); 
 
-    it('should return NaN, -25 should return NaN', function() {
-        document.querySelector("#num2").click();
-        document.querySelector("#num5").click();
-        document.querySelector("#changeSign").click();
-        document.querySelector("#squareRoot").click(); 
-        expect(document.querySelector('#display').value).toBe('NaN'); 
+    it('should return return 0, 0 should return 0', function() {
+        document.querySelector("#num0").click();
+        document.querySelector("#percentage").click();
+        expect(document.querySelector('#display').value).toBe('0'); 
     });  
 
+    /**Memory recall */
+    it('should store what is on display and show proof my using in memory minus , memory recall is 10, 10 minus 3 gives 7', function() {
+        document.querySelector("#num1").click();
+        document.querySelector("#num0").click();
+        document.querySelector("#memRecall").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#memoryMinus").click();
+        expect(document.querySelector('#display').value).toBe('7'); 
+    });  
 
+    it('should store what is on display and show proof my using in memory plus , memory recall is 10, 10 plus 3 gives 13', function() {
+        document.querySelector("#num1").click();
+        document.querySelector("#num0").click();
+        document.querySelector("#memRecall").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#memoryAdd").click();
+        expect(document.querySelector('#display').value).toBe('13'); 
+    });  
+
+    it('should store what is on display and show proof my using in memory minus , memory recall is 10, 10 minus 3 gives 7', function() {
+        document.querySelector("#num1").click();
+        document.querySelector("#memRecall").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#memoryMinus").click();
+        expect(document.querySelector('#display').value).toBe('-2'); 
+    });  
 
 
 });
 
-
-
-/*****Sample */
-/*
- * Unit tests for lib/calculator.js
- */
-
-// describe('Calculator', function() {
-
-//     // inject the HTML fixture for the tests
-//     beforeEach(function() {
-//       var fixture = '<div id="fixture"><input id="x" type="text">' + 
-//         '<input id="y" type="text">' + 
-//         '<input id="add" type="button" value="Add Numbers">' +
-//         'Result: <span id="result" /></div>';
-  
-//       document.body.insertAdjacentHTML(
-//         'afterbegin', 
-//         fixture);
-//     });
-  
-//     // remove the html fixture from the DOM
-//     afterEach(function() {
-//       document.body.removeChild(document.getElementById('fixture'));
-//     });
-  
-    // call the init function of calculator to register DOM elements
-    beforeEach(function() {
-      //window.calculator.init();
-      startUpCalculator();
-    });
-  
-//     it('should return 3 for 1 + 2', function() {
-//       document.getElementById('x').value = 1;
-//       document.getElementById('y').value = 2;
-//       document.getElementById('add').click();
-//       expect(document.getElementById('result').innerHTML).toBe('3');
-//     });
-  
-//     it('should calculate zero for invalid x value', function() {
-//       document.getElementById('x').value = 'hello';
-//       document.getElementById('y').value = 2;
-//       document.getElementById('add').click();
-//       expect(document.getElementById('result').innerHTML).toBe('0');
-//     });
-  
-//     it('should calculate zero for invalid y value', function() {
-//       document.getElementById('x').value = 1;
-//       document.getElementById('y').value = 'goodbye';
-//       document.getElementById('add').click();
-//       expect(document.getElementById('result').innerHTML).toBe('0');
-//     });
-  
-//   });
