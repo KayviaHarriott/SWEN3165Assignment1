@@ -23,6 +23,18 @@ describe('Calculator', function() {
     '   <button id="num9"  value="9">9</button>  ' +
     '    <button id="plus" value="+" class="operator">+</button>  ' +
     '  </div>  ' +
+    '   <div class="row">  ' +
+    '    <button id="num7" value="7">7</button>  ' +
+    '    <button id="num8"  value="8">8</button>  ' +
+    '   <button id="num9"  value="9">9</button>  ' +
+    '    <button id="plus" value="+" class="operator">+</button>  ' +
+    '  </div>  ' +
+    '   <div class="row">  ' +
+    '    <button id="num7" value="7">7</button>  ' +
+    '    <button id="num8"  value="8">8</button>  ' +
+    '   <button id="num9"  value="9">9</button>  ' +
+    '    <button id="plus" value="+" class="operator">+</button>  ' +
+    '  </div>  ' +
     '  <div class="row">  ' +
     '    <button id="num4" value="4">4</button>  ' +
     '    <button id="num5" value="5">5</button>  ' +
@@ -62,25 +74,233 @@ describe('Calculator', function() {
       startUpCalculator();
     });
   
+
+    /**existing functionalities */
+
+    /**checking that all buttons on calculator show in display*/
+    it('should return 0 in display', function() {
+        document.querySelector("#num0").click();
+        expect(document.querySelector('#display').value).toBe('0'); 
+    }); 
+
     it('should return 1 in display', function() {
+        document.querySelector("#num1").click();
+        expect(document.querySelector('#display').value).toBe('1'); 
+    }); 
+
+    it('should return 2 in display', function() {
         document.querySelector("#num2").click();
         expect(document.querySelector('#display').value).toBe('2'); 
     }); 
-  
-    // it('should calculate zero for invalid x value', function() {
-    //   document.getElementById('x').value = 'hello';
-    //   document.getElementById('y').value = 2;
-    //    document.getElementById('add').click();
-    //    expect(document.getElementById('result').innerHTML).toBe('0');
-    //  });
-  
-    // it('should calculate zero for invalid y value', function() {
-    //    document.getElementById('x').value = 1;
-    //   document.getElementById('y').value = 'goodbye';
-    //   document.getElementById('add').click();
-    //   expect(document.getElementById('result').innerHTML).toBe('0');
-    //  });
-  
+
+    it('should return 3 in display', function() {
+        document.querySelector("#num3").click();
+        expect(document.querySelector('#display').value).toBe('3'); 
+    }); 
+
+    it('should return 4 in display', function() {
+        document.querySelector("#num4").click();
+        expect(document.querySelector('#display').value).toBe('4'); 
+    }); 
+ 
+    it('should return 5 in display', function() {
+        document.querySelector("#num5").click();
+        expect(document.querySelector('#display').value).toBe('5'); 
+    });  
+
+    it('should return 6 in display', function() {
+        document.querySelector("#num6").click();
+        expect(document.querySelector('#display').value).toBe('6'); 
+    }); 
+
+    it('should return 7 in display', function() {
+        document.querySelector("#num7").click();
+        expect(document.querySelector('#display').value).toBe('7'); 
+    }); 
+
+    it('should return 8 in display', function() {
+        document.querySelector("#num8").click();
+        expect(document.querySelector('#display').value).toBe('8'); 
+    }); 
+
+    it('should return 9 in display', function() {
+        document.querySelector("#num9").click();
+        expect(document.querySelector('#display').value).toBe('9'); 
+    }); 
+
+    it('should return + in display', function() {
+        document.querySelector("#plus").click();
+        expect(document.querySelector('#display').value).toBe('+'); 
+    }); 
+
+    it('should return - in display', function() {
+        document.querySelector("#minus").click();
+        expect(document.querySelector('#display').value).toBe('-'); 
+    }); 
+
+    it('should return * in display', function() {
+        document.querySelector("#multiply").click();
+        expect(document.querySelector('#display').value).toBe('*'); 
+    }); 
+
+    it('should return / in display', function() {
+        document.querySelector("#divide").click();
+        expect(document.querySelector('#display').value).toBe('/'); 
+    }); 
+
+    /**checking operations with single and double digits*/
+    it('should add two positive numbers, 1 plus 5 to give 6', function() {
+        document.querySelector("#num1").click();
+        document.querySelector("#plus").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#equal").click();  
+        expect(document.querySelector('#display').value).toBe('6'); 
+    }); 
+
+    /**test for two operators */
+    it('should add three positive numbers, 1 plus 5 plus 5 to give 6', function() {
+        document.querySelector("#num1").click();
+        document.querySelector("#plus").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#plus").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#equal").click();  
+        expect(document.querySelector('#display').value).toBe('11'); 
+    }); 
+
+    it('should add two positive double digit numbers, 10 plus 15 to give 25', function() {
+        document.querySelector("#num1").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#plus").click();
+        document.querySelector("#num1").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#equal").click();  
+        expect(document.querySelector('#display').value).toBe('30'); 
+    }); 
+
+    it('should subtract two positive numbers, 8 minus 3 to give 5', function() {
+        document.querySelector("#num8").click();
+        document.querySelector("#minus").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#equal").click();  
+        expect(document.querySelector('#display').value).toBe('5'); 
+    }); 
+
+    /**test for two operators */
+    it('should subtract three positive numbers, 8 minus 3  minus 3 to give 2', function() {
+        document.querySelector("#num8").click();
+        document.querySelector("#minus").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#minus").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#equal").click();  
+        expect(document.querySelector('#display').value).toBe('2'); 
+    }); 
+
+    it('should subtract two double digit positive numbers, 8 minus 3 to give 5', function() {
+        document.querySelector("#num1").click();
+        document.querySelector("#num9").click();
+        document.querySelector("#minus").click();
+        document.querySelector("#num1").click();
+        document.querySelector("#num1").click();
+        document.querySelector("#equal").click();  
+        expect(document.querySelector('#display').value).toBe('8'); 
+    }); 
+
+
+    
+    it('should multiply two positive numbers, 5 times 3 to give 15', function() {
+        document.querySelector("#num5").click();
+        document.querySelector("#multiply").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#equal").click();   
+        expect(document.querySelector('#display').value).toBe('15'); 
+    }); 
+
+    /**test for two operators */
+    it('should multiply three positive numbers, 5 times 3 imes 3 to give 15', function() {
+        document.querySelector("#num5").click();
+        document.querySelector("#multiply").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#multiply").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#equal").click();   
+        expect(document.querySelector('#display').value).toBe('45'); 
+    }); 
+
+
+    it('should multiply two double digit positive numbers, 25 times 32 to give 800', function() {
+        document.querySelector("#num2").click();
+        document.querySelector("#num5").click();
+        document.querySelector("#multiply").click();
+        document.querySelector("#num3").click();
+        document.querySelector("#num2").click();
+        document.querySelector("#equal").click();   
+        expect(document.querySelector('#display').value).toBe('800'); 
+    }); 
+
+
+    it('should divide two positive numbers, 4 divided by 2 to give 2', function() {
+        document.querySelector("#num4").click();
+        document.querySelector("#divide").click();
+        document.querySelector("#num2").click();
+        document.querySelector("#equal").click();   
+        expect(document.querySelector('#display').value).toBe('2'); 
+    }); 
+
+    /**test for two operators */
+    it('should divide three positive numbers, 4 divided by 2 divided by 2 to give 2', function() {
+        document.querySelector("#num4").click();
+        document.querySelector("#divide").click();
+        document.querySelector("#num2").click();
+        document.querySelector("#divide").click();
+        document.querySelector("#num2").click();
+        document.querySelector("#equal").click();   
+        expect(document.querySelector('#display').value).toBe('1'); 
+    }); 
+
+    it('should divide two double digit positive numbers, 44 divided by 22 to give 11', function() {
+        document.querySelector("#num4").click();
+        document.querySelector("#num4").click();
+        document.querySelector("#divide").click();
+        document.querySelector("#num2").click();
+        document.querySelector("#num2").click();
+        document.querySelector("#equal").click();   
+        expect(document.querySelector('#display').value).toBe('2'); 
+    }); 
+
+    /**check for NaN or Infinity responses and zero cases*/
+    it('should return Inifinity, not a number when divided by 0, 6 divided by 0 to give Infinity', function() {
+        document.querySelector("#num6").click();
+        document.querySelector("#divide").click();
+        document.querySelector("#num0").click();
+        document.querySelector("#equal").click();   
+        expect(document.querySelector('#display').value).toBe('Infinity'); 
+    }); 
+
+    it('should return NaN, not a number when 0 divided by 0, 0 divided by 0 to give NaN', function() {
+        document.querySelector("#num0").click();
+        document.querySelector("#divide").click();
+        document.querySelector("#num0").click();
+        document.querySelector("#equal").click();   
+        expect(document.querySelector('#display').value).toBe('NaN'); 
+    }); 
+
+    it('should return NaN, not a number when 0 multiplied by 0, 0 divided by 0 to give 0', function() {
+        document.querySelector("#num0").click();
+        document.querySelector("#multiply").click();
+        document.querySelector("#num0").click();
+        document.querySelector("#equal").click();   
+        expect(document.querySelector('#display').value).toBe('0'); 
+    }); 
+
+    /**test for negative numbers */
+
+    /**test for decimals */
+
+
+
+
 });
 
 
